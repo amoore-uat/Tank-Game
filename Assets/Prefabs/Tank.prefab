@@ -230,8 +230,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3610656876983389513}
   - component: {fileID: 3610656876988376229}
-  - component: {fileID: 1071539352344820375}
   - component: {fileID: 3903866314591863807}
+  - component: {fileID: 586687449}
+  - component: {fileID: 9042457531857436358}
   m_Layer: 0
   m_Name: Tank
   m_TagString: Untagged
@@ -272,18 +273,6 @@ CharacterController:
   m_SkinWidth: 0.001
   m_MinMoveDistance: 0
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1071539352344820375
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3610656876983554409}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d3da49ce6cb282646b84c88651d1f735, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &3903866314591863807
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -296,6 +285,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2914584daf331c749811b37b290ed9a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveSpeed: 3
+  rotateSpeed: 180
+--- !u!114 &586687449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3610656876983554409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3da49ce6cb282646b84c88651d1f735, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &9042457531857436358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3610656876983554409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd1b8ebe2ba831048bacaaa7a427eb8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  input: 0
 --- !u!1 &3610656876983554411
 GameObject:
   m_ObjectHideFlags: 0

@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(CharacterController))]
+[RequireComponent(typeof(TankData))]
 public class TankMotor : MonoBehaviour
 {
     private CharacterController characterController;
@@ -19,8 +21,7 @@ public class TankMotor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Move(data.moveSpeed);
-        Rotate(data.rotateSpeed);
+
     }
 
     public void Move(float speed)
