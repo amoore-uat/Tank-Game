@@ -5,6 +5,8 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
+    public GameObject playerTank;
+    public GameObject[] enemyTanks;
 
     // Runs before any Start() functions run
     void Awake()

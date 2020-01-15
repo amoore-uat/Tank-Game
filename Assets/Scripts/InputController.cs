@@ -4,23 +4,50 @@ using UnityEngine;
 
 [RequireComponent(typeof(TankData))]
 [RequireComponent(typeof(TankMotor))]
+[RequireComponent(typeof(TankShooter))]
 public class InputController : MonoBehaviour
 {
+
     public enum InputScheme { WASD, arrowKeys };
     public InputScheme input = InputScheme.WASD;
     private TankData data;
     private TankMotor motor;
+    private TankShooter shooter;
+    private float timeUntilCanShoot;
+    public bool canShoot = true;
+
 
     // Start is called before the first frame update
     void Start()
     {
         data = gameObject.GetComponent<TankData>();
         motor = gameObject.GetComponent<TankMotor>();
+        shooter = gameObject.GetComponent<TankShooter>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (canShoot)
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                // Shoot
+                shooter.Shoot();
+                canShoot = false;
+                timeUntilCanShoot = data.fireRate;
+            }
+        }
+
+        if (timeUntilCanShoot > 0)
+        {
+            timeUntilCanShoot -= Time.deltaTime;
+        }
+        else
+        {
+            canShoot = true;
+        }
+
         switch (input)
         {
             case InputScheme.arrowKeys:
