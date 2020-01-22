@@ -5,15 +5,17 @@ using UnityEngine;
 public class CannonBall : MonoBehaviour
 {
     public float damage;
-    private Rigidbody rb;
 
-    void Start()
+    void Update()
     {
-        rb = gameObject.GetComponent<Rigidbody>();
+        // After a set amount of time, destroy the cannon ball.
     }
 
-    public void ApplyForce(Vector3 force)
+    void OnCollisionEnter(Collision collision)
     {
-        rb.AddForce(force);
+        // Apply damage to what we collided with.
+
+        // Destroy the cannon ball if it collides with anything
+        Destroy(gameObject);
     }
 }

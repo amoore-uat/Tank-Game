@@ -39,6 +39,7 @@ public class InputController : MonoBehaviour
             }
         }
 
+        // Determine if the player can shoot again yet.
         if (timeUntilCanShoot > 0)
         {
             timeUntilCanShoot -= Time.deltaTime;

@@ -319,12 +319,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 3
   rotateSpeed: 180
-  shellForce: 1
+  shellForce: 10
   damageDone: 1
   fireRate: 1
   health: 0
   maxHealth: 10
   score: 0
+  pointValue: 10
 --- !u!114 &586687449
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -344,12 +345,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3610656876983554409}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cd1b8ebe2ba831048bacaaa7a427eb8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   input: 0
+  canShoot: 1
 --- !u!114 &8535166263089046479
 MonoBehaviour:
   m_ObjectHideFlags: 0
