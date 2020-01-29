@@ -18,6 +18,12 @@ public class SampleAIController : MonoBehaviour
 
     public float closeEnough = 1.0f;
 
+    public bool isPatrolForward = true;
+
+    public enum LoopType { Stop, Loop, PingPong };
+    public LoopType loopType = LoopType.Stop;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -42,12 +48,57 @@ public class SampleAIController : MonoBehaviour
         //if (Vector3.Distance(transform.position, waypoints[currentWaypoint].position) < closeEnough)
         if (Vector3.SqrMagnitude(waypoints[currentWaypoint].position - tf.position) < (closeEnough * closeEnough))
         {
-
-            // Advance to the next waypoint, if we are still in range
-            if (currentWaypoint < waypoints.Length - 1)
+            switch (loopType)
             {
-                currentWaypoint++;
+                case LoopType.Stop:
+                    // Advance to the next waypoint, if we are still in range
+                    if (currentWaypoint < waypoints.Length - 1)
+                    {
+                        currentWaypoint++;
+                    }
+                    break;
+                case LoopType.Loop:
+                    if (currentWaypoint < waypoints.Length - 1)
+                    {
+                        currentWaypoint++;
+                    }
+                    else
+                    {
+                        currentWaypoint = 0;
+                    }
+                    break;
+                case LoopType.PingPong:
+                    if (isPatrolForward)
+                    {
+                        if (currentWaypoint < waypoints.Length - 1)
+                        {
+                            currentWaypoint++;
+                        }
+                        else
+                        {
+                            isPatrolForward = false;
+                            currentWaypoint--;
+                        }
+                    }
+                    else
+                    {
+                        if (currentWaypoint > 0)
+                        {
+                            currentWaypoint--;
+                        }
+                        else
+                        {
+                            isPatrolForward = true;
+                            currentWaypoint++;
+                        }
+                    }
+                    break;
+                default:
+                    Debug.LogError("Loop type not implemented.");
+                    break;
             }
+
+            
         }
 
     }
