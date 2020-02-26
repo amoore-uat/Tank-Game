@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     public GameObject playerTank;
     public GameObject[] enemyTanks;
+    public List<Transform> enemySpawnPoints;
 
     // Runs before any Start() functions run
     void Awake()
