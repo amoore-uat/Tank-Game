@@ -15,17 +15,17 @@ PrefabInstance:
     - target: {fileID: 7737952847525350402, guid: a3b36c04a43c221468d188a6eaa76463,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 11.67
+      value: 16.675158
       objectReference: {fileID: 0}
     - target: {fileID: 7737952847525350402, guid: a3b36c04a43c221468d188a6eaa76463,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.59000003
       objectReference: {fileID: 0}
     - target: {fileID: 7737952847525350402, guid: a3b36c04a43c221468d188a6eaa76463,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 1.376853
       objectReference: {fileID: 0}
     - target: {fileID: 7737952847525350402, guid: a3b36c04a43c221468d188a6eaa76463,
         type: 3}
@@ -67,33 +67,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4266095841454240967, guid: a3b36c04a43c221468d188a6eaa76463,
+    - target: {fileID: 594954866813766985, guid: a3b36c04a43c221468d188a6eaa76463,
         type: 3}
-      propertyPath: waypoints.Array.data[0]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4266095841454240967, guid: a3b36c04a43c221468d188a6eaa76463,
-        type: 3}
-      propertyPath: waypoints.Array.data[1]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4266095841454240967, guid: a3b36c04a43c221468d188a6eaa76463,
-        type: 3}
-      propertyPath: waypoints.Array.data[2]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4266095841454240967, guid: a3b36c04a43c221468d188a6eaa76463,
-        type: 3}
-      propertyPath: waypoints.Array.data[3]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1271041853, guid: a3b36c04a43c221468d188a6eaa76463, type: 3}
-      propertyPath: target
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1271041854, guid: a3b36c04a43c221468d188a6eaa76463, type: 3}
-      propertyPath: target
-      value: 
+      propertyPath: personality
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7737952847523581672, guid: a3b36c04a43c221468d188a6eaa76463,
         type: 3}
@@ -110,10 +87,5 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 6b168f0dbcf89764984cafce1e1ab447, type: 2}
-    - target: {fileID: 594954866813766985, guid: a3b36c04a43c221468d188a6eaa76463,
-        type: 3}
-      propertyPath: personality
-      value: 3
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a3b36c04a43c221468d188a6eaa76463, type: 3}

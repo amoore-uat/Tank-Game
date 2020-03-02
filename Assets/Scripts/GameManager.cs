@@ -1,13 +1,20 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = System.Random;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-    public GameObject playerTank;
-    public GameObject[] enemyTanks;
-    public List<Transform> enemySpawnPoints;
+
+
+    public GameObject instantiatedPlayerTank;
+    public GameObject playerTankPrefab;
+    public GameObject[] instantiatedEnemyTanks;
+    public GameObject[] enemyTankPrefabs;
+    public List<GameObject> playerSpawnPoints;
+    public List<GameObject> enemySpawnPoints;
 
     // Runs before any Start() functions run
     void Awake()
@@ -22,5 +29,30 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
         DontDestroyOnLoad(gameObject);
+    }
+
+    void Update()
+    {
+        if (instantiatedPlayerTank == null)
+        {
+            SpawnPlayer(RandomSpawnPoint(playerSpawnPoints));
+        }
+    }
+
+    private GameObject RandomSpawnPoint(List<GameObject> spawnPoints)
+    {
+        // Get a random spawn point from inside our list of spawn points.
+        int spawnToGet = UnityEngine.Random.Range(0, spawnPoints.Count - 1);
+        return spawnPoints[spawnToGet];
+    }
+
+    public void SpawnPlayer(GameObject spawnPoint)
+    {
+        instantiatedPlayerTank = Instantiate(playerTankPrefab, spawnPoint.transform.position, Quaternion.identity);
+    }
+
+    public void SpawnEnemies()
+    {
+        // Write code for spawning enemies.
     }
 }

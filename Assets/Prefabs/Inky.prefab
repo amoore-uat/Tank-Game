@@ -46,6 +46,18 @@ MonoBehaviour:
   personality: 0
   player: {fileID: 0}
   aiState: 0
+  hearingDistance: 25
+  FOVAngle: 45
+  inSightsAngle: 10
+  target: {fileID: 0}
+  fleeDistance: 1
+  avoidanceStage: 0
+  avoidanceTime: 2
+  waypoints: []
+  currentWaypoint: 0
+  loopType: 0
+  closeEnough: 1
+  isPatrolForward: 1
 --- !u!1001 &8657738472072399413
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -61,17 +73,17 @@ PrefabInstance:
     - target: {fileID: 1388459276474992183, guid: 3406ad2704278654b8cc5fc90ba3d455,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 11.67
+      value: 10.25142
       objectReference: {fileID: 0}
     - target: {fileID: 1388459276474992183, guid: 3406ad2704278654b8cc5fc90ba3d455,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.59000003
       objectReference: {fileID: 0}
     - target: {fileID: 1388459276474992183, guid: 3406ad2704278654b8cc5fc90ba3d455,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.83877283
       objectReference: {fileID: 0}
     - target: {fileID: 1388459276474992183, guid: 3406ad2704278654b8cc5fc90ba3d455,
         type: 3}
@@ -113,31 +125,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4832996636609052402, guid: 3406ad2704278654b8cc5fc90ba3d455,
-        type: 3}
-      propertyPath: waypoints.Array.data[0]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4832996636609052402, guid: 3406ad2704278654b8cc5fc90ba3d455,
-        type: 3}
-      propertyPath: waypoints.Array.data[1]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4832996636609052402, guid: 3406ad2704278654b8cc5fc90ba3d455,
-        type: 3}
-      propertyPath: waypoints.Array.data[2]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4832996636609052402, guid: 3406ad2704278654b8cc5fc90ba3d455,
-        type: 3}
-      propertyPath: waypoints.Array.data[3]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1388459276473091293, guid: 3406ad2704278654b8cc5fc90ba3d455,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: beeda518a28198741925b24d0ca3213a, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3406ad2704278654b8cc5fc90ba3d455, type: 3}
 --- !u!1 &7737952847525777442 stripped
