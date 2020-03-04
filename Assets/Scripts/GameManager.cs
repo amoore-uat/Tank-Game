@@ -8,10 +8,10 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
-
+    public GameObject levelGameObject;
     public GameObject instantiatedPlayerTank;
     public GameObject playerTankPrefab;
-    public GameObject[] instantiatedEnemyTanks;
+    public List<GameObject> instantiatedEnemyTanks;
     public GameObject[] enemyTankPrefabs;
     public List<GameObject> playerSpawnPoints;
     public List<GameObject> enemySpawnPoints;
@@ -31,6 +31,13 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+    void Start()
+    {
+        instantiatedEnemyTanks = new List<GameObject>();
+        playerSpawnPoints = new List<GameObject>();
+        enemySpawnPoints = new List<GameObject>();
+    }
+
     void Update()
     {
         if (instantiatedPlayerTank == null)
@@ -39,7 +46,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private GameObject RandomSpawnPoint(List<GameObject> spawnPoints)
+    public GameObject RandomSpawnPoint(List<GameObject> spawnPoints)
     {
         // Get a random spawn point from inside our list of spawn points.
         int spawnToGet = UnityEngine.Random.Range(0, spawnPoints.Count - 1);
@@ -54,5 +61,15 @@ public class GameManager : MonoBehaviour
     public void SpawnEnemies()
     {
         // Write code for spawning enemies.
+        if (enemyTankPrefabs.Length == 0)
+        { Debug.LogWarning("Enemy tank prefabs is empty"); }
+        for (int i = 0; i < enemyTankPrefabs.Length; ++i)
+        {
+            if (enemySpawnPoints.Count == 0)
+            { Debug.LogWarning("Enemy spawn points list is empty."); }
+            GameObject instantiatedEnemyTank =
+                Instantiate(enemyTankPrefabs[i], RandomSpawnPoint(enemySpawnPoints).transform.position, Quaternion.identity);
+            instantiatedEnemyTanks.Add(instantiatedEnemyTank);
+        }
     }
 }

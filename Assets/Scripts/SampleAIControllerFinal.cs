@@ -62,6 +62,7 @@ public class SampleAIControllerFinal : MonoBehaviour
         motor = gameObject.GetComponent<TankMotor>();
         tf = gameObject.GetComponent<Transform>();
         shooter = gameObject.GetComponent<TankShooter>();
+        target = GameManager.instance.instantiatedPlayerTank.transform;
     }
 
     // Update is called once per frame
