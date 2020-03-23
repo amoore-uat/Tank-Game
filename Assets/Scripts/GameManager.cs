@@ -8,6 +8,18 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
+    public enum GameState
+    {
+        MainMenu,
+        OptionsMenu,
+        StartMenu,
+        Gameplay,
+        GameOver,
+        Paused
+    }
+
+    public GameState currentGameState = GameState.MainMenu;
+    public GameState previousGameState;
     public GameObject levelGameObject;
     public GameObject instantiatedPlayerTank;
     public GameObject playerTankPrefab;
@@ -44,6 +56,97 @@ public class GameManager : MonoBehaviour
         {
             SpawnPlayer(RandomSpawnPoint(playerSpawnPoints));
         }
+    }
+
+    public void ChangeState(GameState newState)
+    {
+        switch (currentGameState)
+        {
+            case GameState.MainMenu:
+                if (newState == GameState.OptionsMenu)
+                {
+                    // Disable input from main menu.
+                    // Activate options menu
+                }
+                if (newState == GameState.StartMenu)
+                {
+                    // Disable input from mainmenu.
+                    // Activate game start menu
+                }
+                break;
+            case GameState.OptionsMenu:
+                if (newState == GameState.MainMenu)
+                {
+                    // Save changes to options
+                    // Deactivate options menu.
+                    // Reactivate Main Menu
+                }
+                if (newState == GameState.Paused)
+                {
+                    // Save changes to options
+                    // Deactivate options menu
+                    // Reactivate paused menu
+                }
+                break;
+            case GameState.StartMenu:
+                if (newState == GameState.MainMenu)
+                {
+                    // Deactivate Start Menu
+                    // Reactivate Main Menu
+                }
+                if (newState == GameState.Gameplay)
+                {
+                    // Deactivate our start menu
+                    // Load our level / spawn players / spawn enemies
+                    MapGenerator mapGenerator = levelGameObject.GetComponent<MapGenerator>();
+                    mapGenerator.StartGame();
+                }
+                break;
+            case GameState.Gameplay:
+                if (newState == GameState.Paused)
+                {
+                    // Pause the simulation.
+                    // Pull up pause menu.
+                }
+                if (newState == GameState.GameOver)
+                {
+                    // Handle game over behaviors
+                    // Saving new high scores
+                }
+                break;
+            case GameState.Paused:
+                if (newState == GameState.Gameplay)
+                {
+                    // Restart the simulation
+                    // Remove the pause menu
+                }
+                if (newState == GameState.MainMenu)
+                {
+                    // Switch to main menu scene/end the simulation
+                    // Activate main menu
+                }
+                if (newState == GameState.OptionsMenu)
+                {
+                    // Deactivate pause menu ui
+                    // Activate options menu ui
+                }
+                break;
+            case GameState.GameOver:
+                if (newState == GameState.Gameplay)
+                {
+                    // Reload the gameplay scene/end the simulation/restart the simulation
+                }
+                if (newState == GameState.MainMenu)
+                {
+                    // Switch to main menu scene/end the sim
+                    // Activate main menu
+                }
+                break;
+            default:
+                break;
+        }
+        previousGameState = currentGameState;
+        currentGameState = newState;
     }
 
     public GameObject RandomSpawnPoint(List<GameObject> spawnPoints)

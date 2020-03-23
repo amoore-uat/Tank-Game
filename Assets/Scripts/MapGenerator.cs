@@ -31,23 +31,6 @@ public class MapGenerator : MonoBehaviour
     void Start()
     {
         GameManager.instance.levelGameObject = this.gameObject;
-        switch (mapType)
-        {
-            case MapType.MapOfTheDay:
-                mapSeed = DateToInt(DateTime.Now.Date);
-                break;
-            case MapType.Random:
-                mapSeed = DateToInt(DateTime.Now);
-                break;
-            case MapType.Seeded:
-                break;
-            default:
-                Debug.LogError("[MapGenerator] Map type not implemented.");
-                break;
-        }
-        GenerateGrid();
-        GameManager.instance.SpawnPlayer(GameManager.instance.RandomSpawnPoint(GameManager.instance.playerSpawnPoints));
-        GameManager.instance.SpawnEnemies();
     }
 
     // Update is called once per frame
@@ -67,6 +50,27 @@ public class MapGenerator : MonoBehaviour
                dateToUse.Day + dateToUse.Hour + 
                dateToUse.Minute + dateToUse.Second + 
                dateToUse.Millisecond;
+    }
+
+    public void StartGame()
+    {
+        switch (mapType)
+        {
+            case MapType.MapOfTheDay:
+                mapSeed = DateToInt(DateTime.Now.Date);
+                break;
+            case MapType.Random:
+                mapSeed = DateToInt(DateTime.Now);
+                break;
+            case MapType.Seeded:
+                break;
+            default:
+                Debug.LogError("[MapGenerator] Map type not implemented.");
+                break;
+        }
+        GenerateGrid();
+        GameManager.instance.SpawnPlayer(GameManager.instance.RandomSpawnPoint(GameManager.instance.playerSpawnPoints));
+        GameManager.instance.SpawnEnemies();
     }
 
     public void GenerateGrid()
