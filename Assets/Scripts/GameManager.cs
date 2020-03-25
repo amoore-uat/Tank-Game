@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour
     public float fxVolume;
     public float musicVolume;
     public List<ScoreData> highScores;
+    public int numberOfPlayers;
 
     // Runs before any Start() functions run
     void Awake()
