@@ -577,6 +577,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ea945a7773780b4bb8de32e92f838cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentGameState: 0
+  previousGameState: 0
   levelGameObject: {fileID: 0}
   instantiatedPlayerTank: {fileID: 0}
   playerTankPrefab: {fileID: 8711479192600982622, guid: 52c1a31a9fb3d7d4da67cfa85ea84a32,
@@ -587,6 +589,11 @@ MonoBehaviour:
   - {fileID: 7737952847525777442, guid: a3b36c04a43c221468d188a6eaa76463, type: 3}
   playerSpawnPoints: []
   enemySpawnPoints: []
+  highScore: 0
+  fxVolume: 0
+  musicVolume: 0
+  highScores: []
+  numberOfPlayers: 0
 --- !u!4 &334354316
 Transform:
   m_ObjectHideFlags: 0
